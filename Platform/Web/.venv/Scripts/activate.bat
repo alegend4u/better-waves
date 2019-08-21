@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=D:\Workspace\better-waves\streamtest\.venv"
+set "VIRTUAL_ENV=D:\GDrive\MYWORK~1\Projects\Better Waves\better-waves\Platform\Web\.venv"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
@@ -9,7 +9,7 @@ if defined _OLD_VIRTUAL_PROMPT (
     )
     set "_OLD_VIRTUAL_PROMPT=%PROMPT%"
 )
-set "PROMPT=(streamtest)  %PROMPT%"
+set "PROMPT=(Web)  %PROMPT%"
 
 REM Don't use () to avoid problems with them in %PATH%
 if defined _OLD_VIRTUAL_PYTHONHOME goto ENDIFVHOME

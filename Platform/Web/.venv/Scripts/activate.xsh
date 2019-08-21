@@ -25,7 +25,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"D:\Workspace\better-waves\streamtest\.venv"
+$VIRTUAL_ENV = r"D:\GDrive\MYWORK~1\Projects\Better Waves\better-waves\Platform\Web\.venv"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

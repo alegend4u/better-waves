@@ -1,4 +1,4 @@
-#!d:\workspace\better-waves\streamtest\.venv\scripts\python.exe
+#!d:\gdrive\mywork~1\projects\better waves\better-waves\platform\web\.venv\scripts\python.exe
 from django.core import management
 
 if __name__ == "__main__":

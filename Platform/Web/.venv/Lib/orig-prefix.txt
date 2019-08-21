@@ -1,1 +1,1 @@
-c:\users\risha\appdata\local\programs\python\python37
+C:\Users\risha\AppData\Local\Programs\Python\Python37
