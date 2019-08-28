@@ -2,38 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3af93d05-02c7-4ee2-9da3-32db25148a59" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.venv/.project" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/.project" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/orig-prefix.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Lib/orig-prefix.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/Django-2.2.4.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Lib/site-packages/Django-2.2.4.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/pip-19.2.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Lib/site-packages/pip-19.2.2.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools-41.1.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools-41.1.0.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools-41.1.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools-41.1.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools-41.1.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools-41.1.0.dist-info/dependency_links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools-41.1.0.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools-41.1.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools-41.1.0.dist-info/zip-safe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools/command/build_ext.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools/command/build_ext.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools/command/install_lib.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Lib/site-packages/setuptools/command/install_lib.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/sqlparse-0.3.0.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Lib/site-packages/sqlparse-0.3.0.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Lib/site-packages/wheel-0.33.6.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Lib/site-packages/wheel-0.33.6.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/activate" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/activate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/activate.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/activate.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/activate.xsh" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/activate.xsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/django-admin.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/django-admin.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/django-admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/django-admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/easy_install-3.7.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/easy_install-3.7.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/easy_install.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/easy_install.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/pip.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/pip.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/pip3.7.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/pip3.7.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/pip3.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/pip3.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/sqlformat.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/sqlformat.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.venv/Scripts/wheel.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/Scripts/wheel.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/BetterWaves.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BetterWaves.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/music/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/music/player.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/music/player.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+            <state relative-caret-position="324">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -70,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/music/player.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            <state relative-caret-position="358">
+              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -86,7 +58,14 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BetterWaves/wsgi.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#227#236#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -151,12 +130,12 @@
         <option value="$PROJECT_DIR$/music/models.py" />
         <option value="$PROJECT_DIR$/music/serializers.py" />
         <option value="$PROJECT_DIR$/music/urls.py" />
-        <option value="$PROJECT_DIR$/templates/music/player.html" />
         <option value="$PROJECT_DIR$/Media_Streamer/urls.py" />
-        <option value="$PROJECT_DIR$/music/views.py" />
         <option value="$PROJECT_DIR$/Media_Streamer/settings.py" />
         <option value="$PROJECT_DIR$/Media_Streamer/settings.py" />
         <option value="$PROJECT_DIR$/BetterWaves/settings.py" />
+        <option value="$PROJECT_DIR$/music/views.py" />
+        <option value="$PROJECT_DIR$/templates/music/player.html" />
       </list>
     </option>
   </component>
@@ -172,6 +151,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -179,11 +159,26 @@
               <item name="BetterWaves" type="b2602c69:ProjectViewProjectNode" />
               <item name="BetterWaves" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BetterWaves" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BetterWaves" type="462c0819:PsiDirectoryNode" />
+              <item name="BetterWaves" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BetterWaves" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BetterWaves" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BetterWaves" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BetterWaves" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="music" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -248,11 +243,15 @@
       <workItem from="1566317086014" duration="21215000" />
       <workItem from="1566415061166" duration="1041000" />
       <workItem from="1566417315760" duration="953000" />
+      <workItem from="1566474550326" duration="2453000" />
+      <workItem from="1566482144955" duration="901000" />
+      <workItem from="1566885311211" duration="153000" />
+      <workItem from="1567014205336" duration="2205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34703000" />
+    <option name="totallyTimeSpent" value="40415000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -267,12 +266,12 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49813432" visible="true" weight="0.23994638" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49813432" visible="true" weight="0.2533512" />
       <window_info id="Structure" order="1" sideWeight="0.5018657" side_tool="true" weight="0.23525469" />
       <window_info id="Favorites" order="2" sideWeight="0.5018657" side_tool="true" weight="0.23525469" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32956153" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32956153" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -282,7 +281,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067025" side_tool="true" weight="0.24186705" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932975" weight="0.24186705" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.28288543" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.24893919" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -323,18 +322,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/music/player.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/BetterWaves/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#227#236#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BetterWaves/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="100" column="6" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/music/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -356,20 +362,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BetterWaves/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="100" column="6" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/music/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        <state relative-caret-position="324">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/music/player.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
         </state>
       </provider>
     </entry>

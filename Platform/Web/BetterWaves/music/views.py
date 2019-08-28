@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import StreamingHttpResponse
+from django.http import StreamingHttpResponse, HttpResponse
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -52,8 +52,10 @@ class SongAlbum(generics.RetrieveAPIView):
 def stream(request, pk, format=None):
     song = Song.objects.get(pk=pk)
     data = song.file.open('rb')
-    response = StreamingHttpResponse(data, content_type='audio/mpeg')
+    response = HttpResponse(data, content_type='audio/mp3')
     response['Content-Disposition'] = 'inline; filename="stream.mp3"'
+    response['Accept-Ranges'] = 'bytes'
+    print('My headers: ', request.headers)
     return response
 
 
