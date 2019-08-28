@@ -34,19 +34,18 @@ public class SongListActivity extends AppCompatActivity implements MediaPlayer.O
     public void playSong(View view) {
         String url = "http://alegend4u.pythonanywhere.com/stream/1";
         //mplayer = MediaPlayer.create(this, R.raw.heybaby);
-
         mplayer = new MediaPlayer();
-
         // Set the media player audio stream type
         mplayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         //Try to play music/audio from url
         try{
-
             mplayer.setDataSource(url);
-            mplayer.prepare();
+            mplayer.setOnPreparedListener(this);
+            mplayer.prepareAsync();
+            //mplayer.prepare();
 
             // Start playing audio from http url
-            mplayer.start();
+            //mplayer.start();
 
             // Inform user for audio streaming
            // Toast.makeText(mContext,"Playing",Toast.LENGTH_SHORT).show();
@@ -60,22 +59,7 @@ public class SongListActivity extends AppCompatActivity implements MediaPlayer.O
         }catch (IllegalStateException e){
             e.printStackTrace();
         }
-        /*mplayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
-
-
-
-        try {
-            mplayer.setDataSource(url);
-            mplayer.setOnPreparedListener(this);
-            mplayer.prepareAsync();
-           }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-
-        mplayer.start();*/
-        //new Thread(this).start();
     }
        /*    public void run() {
 
