@@ -11,7 +11,7 @@ urlpatterns = [
     path('album/<int:pk>', views.AlbumDetail.as_view(), name='album-detail'),
     path('album/<int:pk>/songs', views.AlbumSongs.as_view(), name='album-songs'),
     path('song/<int:pk>/album', views.SongAlbum.as_view(), name='song-album'),
-    path('stream/<int:pk>', views.stream, name='song-stream')
+    path('stream/<int:pk>', views.stream, name='song-stream'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -55,7 +55,6 @@ def stream(request, pk, format=None):
     response = HttpResponse(data, content_type='audio/mp3')
     response['Content-Disposition'] = 'inline; filename="stream.mp3"'
     response['Accept-Ranges'] = 'bytes'
-    print('My headers: ', request.headers)
     return response
 
 

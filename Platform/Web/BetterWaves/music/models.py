@@ -1,6 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 MAX_CHAR = 63
+
+
+class User(AbstractUser):
+    songs = models.ManyToManyField('Song')
 
 
 class Song(models.Model):
@@ -11,6 +16,12 @@ class Song(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class UserSong(models.Model):
+    listen_count = models.IntegerField()
+    song = models.ForeignKey('Song', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
 
 
 class Album(models.Model):
