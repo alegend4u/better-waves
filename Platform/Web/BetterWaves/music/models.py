@@ -13,14 +13,28 @@ class Song(models.Model):
     title = models.CharField(max_length=MAX_CHAR)
     file = models.FileField(upload_to="music", storage=OverwriteStorage(), blank=True, null=True)
 
-    ROCK = 'rock'
-    POP = 'pop'
-    JAZZ = 'jazz'
+    Pop = 'Pop'
+    Rock = 'Rock'
+    Electronic = 'Electronic'
+    Soundtrack = 'Soundtrack'
+    HipHop = 'HipHop'
+    Club = 'Club'
+    Classical = 'Classical'
+    RB = 'R&B'
+    Blues = 'Blues'
+    Metal = 'Metal'
 
     GENRE_CHOICES = (
-        (ROCK, 'Rock'),
-        (POP, 'Pop'),
-        (JAZZ, 'Jazz')
+        (Pop, 'Rock'),
+        (Rock, 'Rock'),
+        (Electronic, 'Electronic'),
+        (Soundtrack, 'Soundtrack'),
+        (HipHop, 'HipHop'),
+        (Club, 'Club'),
+        (Classical, 'Classical'),
+        (RB, 'R&B'),
+        (Blues, 'Blues'),
+        (Metal, 'Metal')
     )
 
     genre = models.CharField(max_length=MAX_CHAR, choices=GENRE_CHOICES, null=True, blank=True)
