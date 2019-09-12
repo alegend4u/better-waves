@@ -11,10 +11,17 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class AlbumSerializer(serializers.HyperlinkedModelSerializer):
-    # song = serializers.HyperlinkedRelatedField(many=True, view_name='song-detail', read_only=True)
+    artist = serializers.HyperlinkedRelatedField(view_name='artist-detail', read_only=True)
 
     class Meta:
         model = Album
+        fields = '__all__'
+
+
+class ArtistSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Artist
         fields = '__all__'
 
 
@@ -22,8 +29,4 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = '__all__'
-
-
-# class StreamSerializer(serializers.Serializer):
-#     bytes = serializers.FileField()
+        fields = ['username']

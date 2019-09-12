@@ -5,6 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from music import views
+from music import library_loader
 
 urlpatterns = [
     url('admin/', admin.site.urls),
@@ -13,3 +14,6 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Startup Load
+library_loader.load_library()

@@ -26,15 +26,16 @@ import java.util.TimerTask;
 import com.google.gson.*;
 
 public class SongListActivity extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
-
+    String base_url = "http://192.168.43.165:8000";
     MediaPlayer mplayer ;
     private Context context;
     List<songs> songslist;
 
     public void playSong(View view) {
-        String url = "http://alegend4u.pythonanywhere.com/stream/1";
+        String url = base_url + "/stream/1";
         //mplayer = MediaPlayer.create(this, R.raw.heybaby);
-        mplayer = new MediaPlayer();
+        if(mplayer == null)
+            mplayer = new MediaPlayer();
         // Set the media player audio stream type
         mplayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         //Try to play music/audio from url
@@ -100,7 +101,7 @@ public class SongListActivity extends AppCompatActivity implements MediaPlayer.O
 
         //Fetch the songs
         RequestQueue queue = (RequestQueue) Volley.newRequestQueue(context);
-        String url = "http://alegend4u.pythonanywhere.com/songs?format=json";
+        String url = base_url + "/stream/1";
         GsonBuilder builder = new GsonBuilder();
         final Gson gson = builder.create();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

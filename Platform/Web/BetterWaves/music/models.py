@@ -23,7 +23,7 @@ class Song(models.Model):
         (JAZZ, 'Jazz')
     )
 
-    genre = models.CharField(max_length=MAX_CHAR, choices=GENRE_CHOICES)
+    genre = models.CharField(max_length=MAX_CHAR, choices=GENRE_CHOICES, null=True, blank=True)
     album = models.ForeignKey('Album', related_name='song_album', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
@@ -37,15 +37,15 @@ class UserSong(models.Model):
 
 
 class Artist(models.Model):
-    title = models.CharField(max_length=MAX_CHAR)
+    title = models.CharField(max_length=MAX_CHAR, default='Unknown Artist')
 
     def __str__(self):
         return self.title
 
 
 class Album(models.Model):
-    artist = models.ForeignKey('Artist', related_name="album_artist", on_delete=models.CASCADE)
-    title = models.CharField(max_length=MAX_CHAR)
+    artist = models.ForeignKey('Artist', related_name="album_artist", on_delete=models.CASCADE, null=True, blank=True)
+    title = models.CharField(max_length=MAX_CHAR, null=True, blank=True)
 
     def __str__(self):
         return self.title
