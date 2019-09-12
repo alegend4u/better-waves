@@ -17,7 +17,7 @@ class Song(models.Model):
     Rock = 'Rock'
     Electronic = 'Electronic'
     Soundtrack = 'Soundtrack'
-    HipHop = 'HipHop'
+    HipHop = 'Hip-Hop'
     Club = 'Club'
     Classical = 'Classical'
     RB = 'R&B'
@@ -25,11 +25,11 @@ class Song(models.Model):
     Metal = 'Metal'
 
     GENRE_CHOICES = (
-        (Pop, 'Rock'),
+        (Pop, 'Pop'),
         (Rock, 'Rock'),
         (Electronic, 'Electronic'),
         (Soundtrack, 'Soundtrack'),
-        (HipHop, 'HipHop'),
+        (HipHop, 'Hip-Hop'),
         (Club, 'Club'),
         (Classical, 'Classical'),
         (RB, 'R&B'),

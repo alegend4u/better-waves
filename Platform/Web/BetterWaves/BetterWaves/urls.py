@@ -15,5 +15,5 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# Startup Load
+# Startup Load (Disable when migrating)
 library_loader.load_library()

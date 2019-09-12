@@ -102,6 +102,20 @@ class UserSongs(APIView):
         return Response(serializer.data)
 
 
+class GenreSongs(APIView):
+
+    def get_object(self, gid):
+        from eyed3.id3 import Genre
+        genre = Genre(id=gid)
+        songs = Song.objects.filter(genre=genre.name)
+        return songs
+
+    def get(self, request, gid, format=None):
+        songs = self.get_object(gid)
+        serializer = SongSerializer(songs, context={'request': request}, many=True)
+        return Response(serializer.data)
+
+
 def stream(request, pk, format=None):
     song = Song.objects.get(pk=pk)
     data = song.file.open('rb')
