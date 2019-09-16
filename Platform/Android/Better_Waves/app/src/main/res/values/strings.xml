@@ -1,10 +1,23 @@
 <resources>
-    <string name="app_name">Better_Waves</string>
-    <string name="username">USERNAME</string>
+    <string name="app_name">Better Waves</string>
+    <string name="username">Username</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign up</string>
-    <string name="password">PASSWORD</string>
+    <string name="password">Password</string>
     <string name="title_activity_song">songActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="pause_button">Pause</string>
+    <string name="play_description">Play</string>
+    <string name="base_url">http://127.0.0.1:8000</string>
+    <string name="tab_recommend">Recommended</string>
+    <string name="tab_artists">Artists</string>
+    <string name="tab_album">Albums</string>
+    <string name="tab_songs">All Songs</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="nothing">Nothing to view</string>
+    <string name="song_name_here">Song name here</string>
+    <string name="album_name_here">Album Name Here</string>
+    <string name="artist_name_here">Artist Name Here</string>
 </resources>

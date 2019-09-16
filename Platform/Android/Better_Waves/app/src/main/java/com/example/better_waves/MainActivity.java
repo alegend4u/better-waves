@@ -1,69 +1,114 @@
 package com.example.better_waves;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import com.example.better_waves.ui.main.SectionsPagerAdapter;
+import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
-    Boolean loginMode = true;
-    TextView signUp;
-
-    public void showSongList(){
-        Intent intent = new Intent(getApplicationContext(),SongListActivity.class);
-        startActivity(intent);
-
-    }
-    public void onClick(View view){
-        if(view.getId() == R.id.signUp){
-
-            Button login = (Button) findViewById(R.id.login);
-
-            if(loginMode){
-                loginMode = false;
-                login.setText("SignUp");
-                signUp.setText("Login");
-            }
-            else{
-                loginMode = true;
-                login.setText("Login");
-                signUp.setText("SignUp");
-            }
-        }
-    }
-    public void login (View view){
-
-        EditText username = (EditText) findViewById(R.id.userName);
-        EditText password = (EditText) findViewById(R.id.password);
-
-        if( username.getText().toString().matches("") || password.getText().toString().matches("")){
-            Toast.makeText(this,"A username and password required",Toast.LENGTH_SHORT).show();
-        }
-        else{
-            if(loginMode) {
-                Toast.makeText(this, "  abhi DataBase baki hee", Toast.LENGTH_SHORT).show();
-                showSongList();
-            }
-            else {
-                Toast.makeText(this,"User is added! ENJOY!!!",Toast.LENGTH_SHORT).show();
-                showSongList();
-            }
-        }
-    }
-
+public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPreparedListener  {
+    private Context context;
+    String base_url;
+    MediaPlayer mplayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("IN onCreate main");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        context = this;
+        base_url = context.getResources().getString(R.string.base_url);
 
-        signUp = (TextView) findViewById(R.id.signUp);
-        signUp.setOnClickListener(this);
+//        //Fetch the songs
+//        RequestQueue queue = (RequestQueue) Volley.newRequestQueue(context);
+//        String url = base_url + "/stream/1";
+//        GsonBuilder builder = new GsonBuilder();
+//        final Gson gson = builder.create();
+//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        //JSONObject jsonObject = null;
+//                        String jsonObject = null;
+//                        try {
+//                            jsonObject = new String(response);
+//
+//                            List<songs> song1 = Arrays.asList(gson.fromJson(jsonObject/*.getJSONObject("data").toString()*/, songs[].class));
+//                            //String x = gson.toJson(song);
+//                            //t1.setText(x);
+//                            songslist = song1;
+//                            ArrayList<String> Title = new ArrayList<String>();
+//                            for (int i = 0; i < songslist.size(); i++) {
+//                                Title.add(songslist.get(i).getTitle());
+//                            }
+//                            ListView songListView = (ListView) findViewById(R.id.listview);
+//
+//                            //ArrayList<String> song = new ArrayList<String>(Arrays.asList("111,222,333,444,555,666".split(",")));
+//                            //song.add("O SAKI SAKI");
+//                            //song.add("shape of You");
+//
+//                            //ArrayAdapter arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,song);
+//                            //ArrayAdapter<String> list = new ArrayList<String>(Arrays.asList("111,222,333,444,555,666".split(",")));
+//                            songListView.setAdapter(new MyCustomAdapter(Title, context));
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//            }
+//        });
+//
+//        queue.add(stringRequest);
+//
+//        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+//        ViewPager viewPager = findViewById(R.id.view_pager);
+//        viewPager.setAdapter(sectionsPagerAdapter);
+//        TabLayout tabs = findViewById(R.id.tabs);
+//        tabs.setupWithViewPager(viewPager);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+        SectionsPagerAdapter pagerAdapter =  new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+
+    }
+
+
+    public void playSong(View view) {
+        String url = base_url + "/stream/1";
+        if (mplayer == null)
+            mplayer = new MediaPlayer();
+        mplayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        //Try to play music/audio from url
+        try {
+            mplayer.setDataSource(url);
+            mplayer.setOnPreparedListener(this);
+            mplayer.prepareAsync();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void pauseSong(View view) {
+        mplayer.pause();
+    }
+
+    @Override
+    public void onPrepared(MediaPlayer mediaPlayer) {
+        mediaPlayer.start();
     }
 }

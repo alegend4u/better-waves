@@ -2,13 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3af93d05-02c7-4ee2-9da3-32db25148a59" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/music/preprocess.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/Albums.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/AllSongs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/Artists.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/Recommendations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/SignInActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/ui/main/PageViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/ui/main/PlaceholderFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/ui/main/RecyclerAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/ui/main/SectionsPagerAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/ui/main/Song.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/layout/albums.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/layout/all_songs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/layout/artists.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/layout/recommendations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/layout/song_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/Better_Waves/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/SongListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/SongListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/ui/main/MyCustomAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/java/com/example/better_waves/ui/main/MyCustomAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/layout/activity_sign_in.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/layout/activity_song_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/layout/activity_song_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/layout/customlayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/Better_Waves/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BetterWaves/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/BetterWaves/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/preprocess.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/music/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/music/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/music/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +47,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
+            <state relative-caret-position="493">
               <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -36,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
+            <state relative-caret-position="1853">
+              <caret line="115" column="40" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -51,7 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="85">
               <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
@@ -63,7 +83,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
+            <state relative-caret-position="527">
               <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
@@ -75,7 +95,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
+            <state relative-caret-position="425">
               <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -87,7 +107,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BetterWaves/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="170">
               <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -96,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/music/library_loader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+            <state relative-caret-position="289">
+              <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -111,11 +131,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="20" column="11" lean-forward="true" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+            <state relative-caret-position="612">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#89#101#0" expanded="true" />
-                <element signature="e#102#110#0" />
               </folding>
             </state>
           </provider>
@@ -284,7 +303,10 @@
       <workItem from="1568089341800" duration="5219000" />
       <workItem from="1568109324059" duration="10207000" />
       <workItem from="1568277288367" duration="18456000" />
-      <workItem from="1568302487745" duration="8605000" />
+      <workItem from="1568302487745" duration="9041000" />
+      <workItem from="1568391726506" duration="3273000" />
+      <workItem from="1568442471848" duration="7000" />
+      <workItem from="1568636941075" duration="3000" />
     </task>
     <task id="LOCAL-00001" summary="Seek working. (Using Normal HttpResponse instead of StreamingHttpResponse)">
       <created>1567019282698</created>
@@ -321,11 +343,18 @@
       <option name="project" value="LOCAL" />
       <updated>1568314110147</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added Genre Urls.">
+      <created>1568316288940</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1568316288940</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91719000" />
+    <option name="totallyTimeSpent" value="95438000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -340,12 +369,12 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49813432" visible="true" weight="0.2774799" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49813432" visible="true" weight="0.23592493" />
       <window_info id="Structure" order="1" sideWeight="0.5018657" side_tool="true" weight="0.23525469" />
       <window_info id="Favorites" order="2" sideWeight="0.5018657" side_tool="true" weight="0.23525469" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.37482318" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" weight="0.37482318" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -353,8 +382,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32956153" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013405" side_tool="true" weight="0.22206506" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49798927" weight="0.31541726" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50268096" side_tool="true" weight="0.31541726" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49731904" visible="true" weight="0.31541726" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.5091938" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -372,7 +401,8 @@
     <MESSAGE value="Solved the problem of repeated song file uploads." />
     <MESSAGE value="Added REST urls for users." />
     <MESSAGE value="Preprocessing about Genres." />
-    <option name="LAST_COMMIT_MESSAGE" value="Preprocessing about Genres." />
+    <MESSAGE value="Added Genre Urls." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Genre Urls." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/music/views-n.py" />
@@ -425,9 +455,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/music/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/music/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1853">
+          <caret line="115" column="40" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/music/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="85">
           <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
@@ -437,7 +487,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/music/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
+        <state relative-caret-position="527">
           <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
@@ -445,19 +495,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/music/library_loader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/music/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
+        <state relative-caret-position="425">
           <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -465,30 +505,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/music/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/music/preprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="20" column="11" lean-forward="true" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-          <folding>
-            <element signature="e#89#101#0" expanded="true" />
-            <element signature="e#102#110#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BetterWaves/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="170">
           <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
@@ -496,12 +515,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/music/views.py">
+    <entry file="file://$PROJECT_DIR$/music/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
+        <state relative-caret-position="612">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#89#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/music/library_loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
