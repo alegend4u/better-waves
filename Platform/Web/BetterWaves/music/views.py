@@ -17,6 +17,33 @@ class SongDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = SongSerializer
 
 
+class SongAlbum(generics.RetrieveAPIView):
+    queryset = Song.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        song = self.get_object()
+        album = song.album
+
+        serializer = AlbumSerializer(album, context={'request': request})
+        return Response(serializer.data)
+
+
+class SongArtist(APIView):
+
+    def get_object(self, pk):
+        try:
+            return Song.objects.get(pk=pk)
+        except Song.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        song = self.get_object(pk)
+        artist = song.album.artist
+
+        serializer = ArtistSerializer(artist, context={'request': request})
+        return Response(serializer.data)
+
+
 class AlbumList(generics.ListCreateAPIView):
     queryset = Album.objects.all()
     serializer_class = AlbumSerializer
@@ -39,16 +66,21 @@ class AlbumSongs(generics.ListCreateAPIView):
         return Response(serializer.data)
 
 
-class SongAlbum(generics.RetrieveAPIView):
-    serializer_class = SongSerializer
-    queryset = Song.objects.all()
+class AlbumArtist(APIView):
 
-    def get(self, request, *args, **kwargs):
-        song = self.get_object()
-        album = song.album
+    def get_object(self, pk):
+        try:
+            return Album.objects.get(pk=pk)
+        except Album.DoesNotExist:
+            raise Http404
 
-        serializer = AlbumSerializer(album, context={'request': request})
+    def get(self, request, pk, format=None):
+        album = self.get_object(pk=pk)
+        artist = album.artist
+        serializer = ArtistSerializer(artist, context={'request': request}, many=True)
         return Response(serializer.data)
+
+
 
 
 class ArtistList(generics.ListCreateAPIView):

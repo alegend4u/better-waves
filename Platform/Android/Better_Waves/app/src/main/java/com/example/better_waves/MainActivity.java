@@ -21,57 +21,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
         System.out.println("IN onCreate main");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        context = this;
-        base_url = context.getResources().getString(R.string.base_url);
 
-//        //Fetch the songs
-//        RequestQueue queue = (RequestQueue) Volley.newRequestQueue(context);
-//        String url = base_url + "/stream/1";
-//        GsonBuilder builder = new GsonBuilder();
-//        final Gson gson = builder.create();
-//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        //JSONObject jsonObject = null;
-//                        String jsonObject = null;
-//                        try {
-//                            jsonObject = new String(response);
-//
-//                            List<songs> song1 = Arrays.asList(gson.fromJson(jsonObject/*.getJSONObject("data").toString()*/, songs[].class));
-//                            //String x = gson.toJson(song);
-//                            //t1.setText(x);
-//                            songslist = song1;
-//                            ArrayList<String> Title = new ArrayList<String>();
-//                            for (int i = 0; i < songslist.size(); i++) {
-//                                Title.add(songslist.get(i).getTitle());
-//                            }
-//                            ListView songListView = (ListView) findViewById(R.id.listview);
-//
-//                            //ArrayList<String> song = new ArrayList<String>(Arrays.asList("111,222,333,444,555,666".split(",")));
-//                            //song.add("O SAKI SAKI");
-//                            //song.add("shape of You");
-//
-//                            //ArrayAdapter arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,song);
-//                            //ArrayAdapter<String> list = new ArrayList<String>(Arrays.asList("111,222,333,444,555,666".split(",")));
-//                            songListView.setAdapter(new MyCustomAdapter(Title, context));
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//            }
-//        });
-//
-//        queue.add(stringRequest);
-//
-//        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-//        ViewPager viewPager = findViewById(R.id.view_pager);
-//        viewPager.setAdapter(sectionsPagerAdapter);
-//        TabLayout tabs = findViewById(R.id.tabs);
-//        tabs.setupWithViewPager(viewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         SectionsPagerAdapter pagerAdapter =  new SectionsPagerAdapter(getApplicationContext(), getSupportFragmentManager());

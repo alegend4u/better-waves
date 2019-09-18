@@ -16,7 +16,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     public void showSongList(){
         Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-        System.out.println("Starting main");
         startActivity(intent);
     }
     public void onClick(View view){
@@ -44,12 +43,12 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         }
         else{
             if(loginMode) {
-                String greeting = "Welcome back" + username.getText().toString();
+                String greeting = "Welcome back " + username.getText().toString();
                 Toast.makeText(this, greeting, Toast.LENGTH_SHORT).show();
                 showSongList();
             }
             else {
-                String greeting = "Welcome" + username.getText().toString();
+                String greeting = "Welcome " + username.getText().toString();
                 Toast.makeText(this, greeting,Toast.LENGTH_SHORT).show();
                 showSongList();
             }

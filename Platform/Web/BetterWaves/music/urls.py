@@ -9,11 +9,13 @@ urlpatterns = [
     path('songs', views.SongList.as_view(), name='song-list'),
     path('song/<int:pk>', views.SongDetail.as_view(), name='song-detail'),
     path('song/<int:pk>/album', views.SongAlbum.as_view(), name='song-album'),
+    path('song/<int:pk>/artist', views.SongArtist.as_view(), name='song-artist'),
 
     # albums urls
     path('albums', views.AlbumList.as_view(), name='album-list'),
     path('album/<int:pk>', views.AlbumDetail.as_view(), name='album-detail'),
     path('album/<int:pk>/songs', views.AlbumSongs.as_view(), name='album-songs'),
+    path('album/<int:pk>/artist', views.AlbumArtist.as_view(), name='album-artist'),
 
     # artists urls
     path('artists', views.ArtistList.as_view(), name='artist-list'),

@@ -3,7 +3,8 @@ from music.models import *
 
 
 class SongSerializer(serializers.HyperlinkedModelSerializer):
-    album = serializers.HyperlinkedIdentityField(view_name='album-detail', read_only=True)
+    album = serializers.HyperlinkedIdentityField(view_name='song-album', read_only=True)
+    artist = serializers.HyperlinkedIdentityField(view_name='song-artist', read_only=True)
 
     class Meta:
         model = Song
