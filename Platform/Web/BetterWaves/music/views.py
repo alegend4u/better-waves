@@ -7,6 +7,19 @@ from music.serializers import *
 from music.models import *
 
 
+# class SongList(APIView):
+#
+#     def get_object(self):
+#         try:
+#             return Song.objects.all()
+#         except Song.DoesNotExist:
+#             raise Http404
+#
+#     def get(self, request, format=None):
+#         songs = self.get_object()
+#
+#         serializer = serializers.SongSerializer(songs, context={'request': request})
+
 class SongList(generics.ListCreateAPIView):
     queryset = Song.objects.all()
     serializer_class = SongSerializer
