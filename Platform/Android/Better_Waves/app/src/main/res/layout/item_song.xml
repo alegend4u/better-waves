@@ -9,7 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/list_item_left_padding"
+        android:paddingLeft="@dimen/list_item_left_padding"
+        android:paddingTop="@dimen/list_item_top_padding"
+        android:paddingRight="@dimen/list_item_left_padding"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -17,6 +19,7 @@
             android:id="@+id/song_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#000000"
             android:textSize="20sp"
             tools:text="@string/song_name_here" />
 
