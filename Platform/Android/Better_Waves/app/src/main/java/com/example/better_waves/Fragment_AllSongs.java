@@ -49,7 +49,6 @@ public class Fragment_AllSongs extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,7 +63,7 @@ public class Fragment_AllSongs extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Context context;
+        final Context context;
 
         songs = new ArrayList<>();
         context = getContext();
@@ -90,10 +89,11 @@ public class Fragment_AllSongs extends Fragment {
                                 assert id != -1;
                                 final String title = jo.get("title").getAsString();
                                 final String genre = jo.get("genre").getAsString();
-                                String album_url = jo.get("album").getAsString();
-                                String artist_url = jo.get("artist").getAsString();
-//                                System.out.println("Added: " + title);
-                                songs.add(new Song(id, title, album_url, artist_url, genre));
+                                final String album = jo.get("album_title").getAsString();
+                                final String artist = jo.get("artist_title").getAsString();
+
+                                final Song s = new Song(id, title, album, artist, genre);
+                                songs.add(s);
                             }
 
                             rv = (RecyclerView) v.findViewById(R.id.songs_list);
