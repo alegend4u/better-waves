@@ -45,8 +45,8 @@ def load_library():
             album = dup_album[0]
 
         # Create Song model and check if already exists
-        s = models.Song(title=tag.title, album=album, genre=tag.genre.name, file=file.name)
-        dup_song = models.Song.objects.filter(file=file.name)
+        s = models.Song(title=tag.title, album=album, genre=tag.genre.name, file=filepath)
+        dup_song = models.Song.objects.filter(file=filepath)
         if not dup_song:
             # print('Song added:', file.name)
             s.save()

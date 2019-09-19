@@ -17,5 +17,6 @@ class OverwriteStorage(FileSystemStorage):
     def save(self, name, content, max_length=None):
         new_name = self.get_available_name(name, max_length=max_length)
         if new_name == 'ALREADY_EXISTS':
+            print(content)
             return content.name
         super().save(name, content, max_length=max_length)

@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class MusicPlayer implements MediaPlayer.OnPreparedListener {
     Context context;
-    MediaPlayer mplayer;
+    static MediaPlayer mplayer;
     String stream_base_url;
 
 
@@ -28,15 +28,22 @@ public class MusicPlayer implements MediaPlayer.OnPreparedListener {
     }
 
     public void playSong(View view, int song_id) {
-        String url = stream_base_url + String.valueOf(song_id);
-        if (mplayer == null)
+        if (mplayer == null) {
             mplayer = new MediaPlayer();
-        mplayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        //Try to play music/audio from url
+            mplayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        }
+        if(mplayer.isPlaying()){
+            mplayer.stop();
+//            mplayer.release();
+            mplayer.reset();
+        }
+        String url = stream_base_url + String.valueOf(song_id);
+
         try {
             mplayer.setDataSource(url);
             mplayer.setOnPreparedListener(this);
             mplayer.prepareAsync();
+            mplayer.start();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
@@ -46,7 +53,6 @@ public class MusicPlayer implements MediaPlayer.OnPreparedListener {
         } catch (IllegalStateException e) {
             e.printStackTrace();
         }
-
     }
 
 }

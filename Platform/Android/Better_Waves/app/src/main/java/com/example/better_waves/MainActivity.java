@@ -17,6 +17,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity  {
     private Context context;
+    private MusicPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,19 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void pause(View v){
-        MusicPlayer player = MyOnClickListener.getPlayer();
-        player.pauseSong(v);
+        player = MyOnClickListener.getPlayer();
+        if(player.mplayer.isPlaying()) {
+            player.pauseSong(v);
+        }
+    }
+
+    public void play(View v){
+        player = MyOnClickListener.getPlayer();
+        if(player.mplayer.isPlaying() && v.equals(findViewById(R.id.play))){
+            return;
+        } else {
+            player.mplayer.start();
+        }
     }
 
 }
