@@ -71,9 +71,6 @@ public class Fragment_AllSongs extends Fragment {
         base_url = context.getResources().getString(R.string.base_url);
         String url = base_url + "songs";
 
-        GsonBuilder builder = new GsonBuilder();
-        final Gson gson = builder.create();
-
         final RequestQueue queue = (RequestQueue) Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {

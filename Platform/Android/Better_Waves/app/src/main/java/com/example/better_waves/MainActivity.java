@@ -8,19 +8,22 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
+
+import com.example.better_waves.ui.main.MyOnClickListener;
+import com.example.better_waves.ui.main.RecyclerAdapter_AllSongs;
 import com.example.better_waves.ui.main.SectionsPagerAdapter;
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPreparedListener  {
+public class MainActivity extends AppCompatActivity  {
     private Context context;
-    String base_url;
-    MediaPlayer mplayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("IN onCreate main");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        context = getApplicationContext();
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
@@ -30,35 +33,9 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
 
     }
 
-
-    public void playSong(View view) {
-        String url = base_url + "/stream/1";
-        if (mplayer == null)
-            mplayer = new MediaPlayer();
-        mplayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        //Try to play music/audio from url
-        try {
-            mplayer.setDataSource(url);
-            mplayer.setOnPreparedListener(this);
-            mplayer.prepareAsync();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        }
-
+    public void pause(View v){
+        MusicPlayer player = MyOnClickListener.getPlayer();
+        player.pauseSong(v);
     }
 
-    public void pauseSong(View view) {
-        mplayer.pause();
-    }
-
-    @Override
-    public void onPrepared(MediaPlayer mediaPlayer) {
-        mediaPlayer.start();
-    }
 }

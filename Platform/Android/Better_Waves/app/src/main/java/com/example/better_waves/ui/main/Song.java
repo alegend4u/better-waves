@@ -7,6 +7,15 @@ public class Song {
     String artist;
     String genre;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
     public Song() {
     }
 
