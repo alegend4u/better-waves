@@ -153,13 +153,23 @@ class GenreSongs(APIView, TokenMixin):
         return Response(serializer.data)
 
 
-def stream(request, pk, format=None):
-    song = Song.objects.get(pk=pk)
-    data = song.file.open('rb')
-    response = HttpResponse(data, content_type='audio/mp3')
-    response['Content-Disposition'] = 'inline; filename="stream.mp3"'
-    response['Accept-Ranges'] = 'bytes'
-    return response
+class Stream(APIView, TokenMixin):
+
+    def get(self, request, pk, format=None):
+        song = Song.objects.get(pk=pk)
+        data = song.file.open('rb')
+        response = HttpResponse(data, content_type='audio/mp3')
+        response['Content-Disposition'] = 'inline; filename="stream.mp3"'
+        response['Accept-Ranges'] = 'bytes'
+
+        # Increase play count
+        user = request.user
+        user_song = UserSong.objects.get_or_create(user_of_song=user, song=song)[0]
+
+        user_song.listen_count += 1
+        user_song.save()
+
+        return response
 
 
 def player(request):

@@ -31,7 +31,7 @@ urlpatterns = [
     path('genre/<int:gid>/songs', views.GenreSongs.as_view(), name='genre=songs'),
 
     # stream urls
-    path('stream/<int:pk>', views.stream, name='song-stream'),
+    path('stream/<int:pk>', views.Stream.as_view(), name='song-stream'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

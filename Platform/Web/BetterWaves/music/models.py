@@ -7,7 +7,7 @@ MAX_CHAR = 63
 
 
 class User(AbstractUser):
-    rated_songs = models.ManyToManyField('Song')
+    rated_songs = models.ManyToManyField('Song', through='UserSong')
 
 
 class Song(models.Model):
@@ -46,9 +46,14 @@ class Song(models.Model):
 
 
 class UserSong(models.Model):
-    listen_count = models.IntegerField()
-    song = models.ForeignKey('Song', on_delete=models.CASCADE)
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    song = models.ForeignKey(Song, on_delete=models.CASCADE)
+    user_of_song = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+    listen_count = models.IntegerField(default=0)
+    rating = models.IntegerField(default=-1)  # Out of 5. -1 means not rated
+
+    def __str__(self):
+        return self.user_of_song.username + " - " + self.song.title
 
 
 class Artist(models.Model):
