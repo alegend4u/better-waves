@@ -7,7 +7,7 @@
     <string name="title_activity_song">songActivity</string>
     <string name="pause_button">Pause</string>
     <string name="play_description">Play</string>
-    <string name="base_url">http://192.168.0.100:8000/</string>
+    <string name="base_url">http://192.168.43.165:8000/</string>
     <string name="tab_recommend">Recommended</string>
     <string name="tab_artists">Artists</string>
     <string name="tab_album">Albums</string>

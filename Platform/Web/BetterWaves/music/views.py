@@ -3,34 +3,28 @@ from django.http import HttpResponse, Http404
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 from music.serializers import *
 from music.models import *
 
 
-# class SongList(APIView):
-#
-#     def get_object(self):
-#         try:
-#             return Song.objects.all()
-#         except Song.DoesNotExist:
-#             raise Http404
-#
-#     def get(self, request, format=None):
-#         songs = self.get_object()
-#
-#         serializer = serializers.SongSerializer(songs, context={'request': request})
+class TokenMixin(object):
+    authentication_classes = [TokenAuthentication, ]
+    permission_classes = [IsAuthenticated, ]
 
-class SongList(generics.ListCreateAPIView):
+
+class SongList(generics.ListCreateAPIView, TokenMixin):
     queryset = Song.objects.all()
     serializer_class = SongSerializer
 
 
-class SongDetail(generics.RetrieveUpdateDestroyAPIView):
+class SongDetail(generics.RetrieveUpdateDestroyAPIView, TokenMixin):
     queryset = Song.objects.all()
     serializer_class = SongSerializer
 
 
-class SongAlbum(generics.RetrieveAPIView):
+class SongAlbum(generics.RetrieveAPIView, TokenMixin):
     queryset = Song.objects.all()
 
     def get(self, request, *args, **kwargs):
@@ -41,7 +35,7 @@ class SongAlbum(generics.RetrieveAPIView):
         return Response(serializer.data)
 
 
-class SongArtist(APIView):
+class SongArtist(APIView, TokenMixin):
 
     def get_object(self, pk):
         try:
@@ -57,17 +51,17 @@ class SongArtist(APIView):
         return Response(serializer.data)
 
 
-class AlbumList(generics.ListCreateAPIView):
+class AlbumList(generics.ListCreateAPIView, TokenMixin):
     queryset = Album.objects.all()
     serializer_class = AlbumSerializer
 
 
-class AlbumDetail(generics.RetrieveUpdateDestroyAPIView):
+class AlbumDetail(generics.RetrieveUpdateDestroyAPIView, TokenMixin):
     queryset = Album.objects.all()
     serializer_class = AlbumSerializer
 
 
-class AlbumSongs(generics.ListCreateAPIView):
+class AlbumSongs(generics.ListCreateAPIView, TokenMixin):
     serializer_class = AlbumSerializer
     queryset = Album.objects.all()
 
@@ -79,7 +73,7 @@ class AlbumSongs(generics.ListCreateAPIView):
         return Response(serializer.data)
 
 
-class AlbumArtist(APIView):
+class AlbumArtist(APIView, TokenMixin):
 
     def get_object(self, pk):
         try:
@@ -94,19 +88,17 @@ class AlbumArtist(APIView):
         return Response(serializer.data)
 
 
-
-
-class ArtistList(generics.ListCreateAPIView):
+class ArtistList(generics.ListCreateAPIView, TokenMixin):
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
 
 
-class ArtistDetail(generics.RetrieveUpdateDestroyAPIView):
+class ArtistDetail(generics.RetrieveUpdateDestroyAPIView, TokenMixin):
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
 
 
-class ArtistAlbums(APIView):
+class ArtistAlbums(APIView, TokenMixin):
 
     def get_object(self, pk):
         try:
@@ -121,17 +113,17 @@ class ArtistAlbums(APIView):
         return Response(serializer.data)
 
 
-class UserList(generics.ListCreateAPIView):
+class UserList(generics.ListCreateAPIView, TokenMixin):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+class UserDetail(generics.RetrieveUpdateDestroyAPIView, TokenMixin):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
-class UserSongs(APIView):
+class UserSongs(APIView, TokenMixin):
 
     def get_object(self, pk):
         try:
@@ -147,7 +139,7 @@ class UserSongs(APIView):
         return Response(serializer.data)
 
 
-class GenreSongs(APIView):
+class GenreSongs(APIView, TokenMixin):
 
     def get_object(self, gid):
         from eyed3.id3 import Genre

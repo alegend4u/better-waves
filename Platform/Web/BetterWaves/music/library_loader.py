@@ -51,5 +51,6 @@ def load_library():
             # print('Song added:', file.name)
             s.save()
         # print("="*10)
-
+    print()
     print("-="*10 + " LOAD COMPLETE " + '=-'*10)
+    print()

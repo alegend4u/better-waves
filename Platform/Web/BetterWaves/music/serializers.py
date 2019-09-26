@@ -19,7 +19,6 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
         return song.album.artist.title
 
 
-
 class AlbumSerializer(serializers.HyperlinkedModelSerializer):
     artist = serializers.HyperlinkedRelatedField(view_name='artist-detail', read_only=True)
 

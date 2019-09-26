@@ -20,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.better_waves.ui.main.RecyclerAdapter_AllSongs;
 import com.example.better_waves.ui.main.Song;
+import com.example.better_waves.ui.main.UserToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -29,7 +30,9 @@ import com.google.gson.JsonParser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -71,7 +74,7 @@ public class Fragment_AllSongs extends Fragment {
         base_url = context.getResources().getString(R.string.base_url);
         String url = base_url + "songs";
 
-        final RequestQueue queue = (RequestQueue) Volley.newRequestQueue(context);
+        RequestQueue queue = (RequestQueue) Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -83,7 +86,6 @@ public class Fragment_AllSongs extends Fragment {
                                 JsonObject jo = je.getAsJsonObject();
                                 String url = jo.get("url").getAsString();
                                 int id = Fragment_AllSongs.getIdFromUrl(url);
-                                assert id != -1;
                                 final String title = jo.get("title").getAsString();
                                 final String genre = jo.get("genre").getAsString();
                                 final String album = jo.get("album_title").getAsString();
@@ -101,12 +103,21 @@ public class Fragment_AllSongs extends Fragment {
                             e.printStackTrace();
                         }
                     }
+
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders(){
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Token " + UserToken.getToken());
+
+                return headers;
+            }
+        };
 
         queue.add(stringRequest);
     }

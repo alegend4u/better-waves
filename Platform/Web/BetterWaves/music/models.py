@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from music.storage import OverwriteStorage
+from rest_framework.authtoken.models import Token
 
 MAX_CHAR = 63
 
 
 class User(AbstractUser):
-    songs = models.ManyToManyField('Song')
+    rated_songs = models.ManyToManyField('Song')
 
 
 class Song(models.Model):

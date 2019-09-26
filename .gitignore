@@ -1,2 +1,2 @@
-Platform\Web\env
-Platform\Web\Media_Streamer\media\music\*
+Platform\Web\.venv
+Platform\Web\BetterWaves\media\music
