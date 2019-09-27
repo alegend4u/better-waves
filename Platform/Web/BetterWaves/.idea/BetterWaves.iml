@@ -17,6 +17,9 @@
     <orderEntry type="jdk" jdkName="Pipenv (BetterWaves)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PackageRequirementsSettings">
+    <option name="requirementsPath" value="D:\GDrive\My Work\Projects\Better Waves\better-waves\Platform\Web\requirements.txt" />
+  </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">

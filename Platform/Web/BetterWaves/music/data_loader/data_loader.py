@@ -26,7 +26,6 @@ songs = pd.read_csv(data_file)
 # ============== Create random users ==============
 RATING = [-1, 1, 2, 3, 4, 5]
 
-i = 0
 for index,row in songs.iterrows():
     # print(row['user_id'], row['song_id'], row['listen_count'])
     user_id = row['user_id']
@@ -40,6 +39,3 @@ for index,row in songs.iterrows():
         user_song = models.UserSong(user_of_song=user, song=song, listen_count=listen_count, rating=rating)
         # print(user, song, listen_count, rating)
         user_song.save()
-    # i += 1
-    # if i == 100:
-    #     break
