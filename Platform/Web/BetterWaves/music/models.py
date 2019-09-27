@@ -52,6 +52,9 @@ class UserSong(models.Model):
     listen_count = models.IntegerField(default=0)
     rating = models.IntegerField(default=-1)  # Out of 5. -1 means not rated
 
+    class Meta:
+        unique_together = ['user_of_song', 'song']
+
     def __str__(self):
         return self.user_of_song.username + " - " + self.song.title
 

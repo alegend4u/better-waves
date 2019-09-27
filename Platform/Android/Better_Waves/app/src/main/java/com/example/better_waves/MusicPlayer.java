@@ -35,11 +35,11 @@ public class MusicPlayer implements MediaPlayer.OnPreparedListener {
             mplayer = new MediaPlayer();
             mplayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         }
-        if(mplayer.isPlaying()){
+//        if(mplayer.isPlaying()){
             mplayer.stop();
 //            mplayer.release();
             mplayer.reset();
-        }
+//        }
         String url = stream_base_url + String.valueOf(song_id);
         Uri uri = Uri.parse(url);
         try {

@@ -165,7 +165,6 @@ class Stream(APIView, TokenMixin):
         # Increase play count
         user = request.user
         user_song = UserSong.objects.get_or_create(user_of_song=user, song=song)[0]
-
         user_song.listen_count += 1
         user_song.save()
 
