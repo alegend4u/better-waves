@@ -7,6 +7,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from music.serializers import *
 from music.models import *
+from music.recom_engine import RecommendationEngine
+
+
+engine = RecommendationEngine()
 
 
 class TokenMixin(object):
@@ -169,6 +173,16 @@ class Stream(APIView, TokenMixin):
         user_song.save()
 
         return response
+
+
+class Recommend(APIView, TokenMixin):
+
+    def get(self, request, format=None):
+        user = request.user
+        result = engine.recommend(user.id)
+        serializer = RecommendationSerializer(result, many=True)
+
+        return Response(serializer.data)
 
 
 def player(request):

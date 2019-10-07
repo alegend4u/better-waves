@@ -23,7 +23,7 @@ urlpatterns = [
     path('artist/<int:pk>/albums', views.ArtistAlbums.as_view(), name='artist-albums'),
 
     # users urls
-    path('users/', views.UserList.as_view(), name='user-list'),
+    path('users', views.UserList.as_view(), name='user-list'),
     path('user/<int:pk>', views.UserDetail.as_view(), name='user-detail'),
     path('user/<int:pk>/songs', views.UserSongs.as_view(), name='user-songs'),
 
@@ -32,6 +32,9 @@ urlpatterns = [
 
     # stream urls
     path('stream/<int:pk>', views.Stream.as_view(), name='song-stream'),
+
+    # recommend urls
+    path('recommend', views.Recommend.as_view(), name='recommend')
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -25,17 +25,16 @@ songs = pd.read_csv(data_file)
 
 # ============== Create random users ==============
 RATING = [-1, 1, 2, 3, 4, 5]
-
-for index,row in songs.iterrows():
+for index,row in songs.iterrows()[:10000]: # Limit this value around 10000
     # print(row['user_id'], row['song_id'], row['listen_count'])
     user_id = row['user_id']
     song_id = row['song_id']
     listen_count = row['listen_count']
     rating = random.choice(RATING)
-
+    # print('checking', user_id, song_id)
     user = models.User.objects.get(id=user_id)
     song = models.Song.objects.get(id=song_id)
     if not models.UserSong.objects.filter(user_of_song=user, song=song):
         user_song = models.UserSong(user_of_song=user, song=song, listen_count=listen_count, rating=rating)
-        # print(user, song, listen_count, rating)
+        print(user, song, listen_count, rating)
         user_song.save()
