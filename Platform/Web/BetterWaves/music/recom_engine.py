@@ -37,8 +37,6 @@ class RecommendationEngine:
         ranks = list(result['Rank'])
         result = []
         for i in range(len(song_ids)):
-            result.append({
-                'song_id': song_ids[i],
-                'rank': ranks[i]
-            })
+            song = models.Song.objects.get(id=song_ids[i])
+            result.append(song)
         return result

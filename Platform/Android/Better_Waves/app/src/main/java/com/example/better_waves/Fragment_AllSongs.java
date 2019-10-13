@@ -113,6 +113,7 @@ public class Fragment_AllSongs extends Fragment {
             @Override
             public Map<String, String> getHeaders(){
                 HashMap<String, String> headers = new HashMap<>();
+                System.out.println("Adding token:" + UserToken.getToken());
                 headers.put("Authorization", "Token " + UserToken.getToken());
 
                 return headers;

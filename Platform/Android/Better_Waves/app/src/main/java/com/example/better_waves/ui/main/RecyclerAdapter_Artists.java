@@ -49,7 +49,7 @@ public class RecyclerAdapter_Artists extends RecyclerView.Adapter<RecyclerAdapte
         public MyViewHolder(View itemView){
             super(itemView);
 
-            artist_name = (TextView) itemView.findViewById(R.id.song_artist);
+            artist_name = (TextView) itemView.findViewById(R.id.album_artist);
 
         }
     }

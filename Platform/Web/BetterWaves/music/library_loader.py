@@ -48,8 +48,15 @@ def load_library():
         s = models.Song(title=tag.title, album=album, genre=tag.genre.name, file=filepath)
         dup_song = models.Song.objects.filter(file=filepath)
         if not dup_song:
-            # print('Song added:', file.name)
-            s.save()
+            dup_song_2 = models.Song.objects.filter(title=tag.title, album=album, genre=tag.genre.name)
+            if not dup_song_2:
+                print('Song added:', file.name)
+                s.save()
+            else:
+                print("Updated filepath!")
+                song = dup_song_2[0]
+                song.file = filepath
+                song.save()
         # print("="*10)
     print()
     print("-="*10 + " LOAD COMPLETE " + '=-'*10)

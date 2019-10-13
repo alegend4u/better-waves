@@ -161,6 +161,7 @@ class Stream(APIView, TokenMixin):
 
     def get(self, request, pk, format=None):
         song = Song.objects.get(pk=pk)
+        print("Reading path:", song.file)
         data = song.file.open('rb')
         response = HttpResponse(data, content_type='audio/mp3')
         response['Content-Disposition'] = 'inline; filename="stream.mp3"'
@@ -179,8 +180,8 @@ class Recommend(APIView, TokenMixin):
 
     def get(self, request, format=None):
         user = request.user
-        result = engine.recommend(user.id)
-        serializer = RecommendationSerializer(result, many=True)
+        songs = engine.recommend(user.id)
+        serializer = SongSerializer(songs, context={'request': request}, many=True)
 
         return Response(serializer.data)
 
