@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+
+from django.core.files import File
 from eyed3 import id3
 from BetterWaves import settings
 from music import models
@@ -16,8 +18,8 @@ def load_library():
 
     for file in files:
         # Parse the file
-        filepath = os.path.join(library_path, file.name)
-        tag.parse(filepath)
+        filepath = os.path.join('music', file.name)
+        tag.parse(os.path.join(library_path, file.name))
 
         # Delete if any of tags is None
         if not (tag.title and tag.artist and tag.album and tag.genre):
@@ -45,19 +47,19 @@ def load_library():
             album = dup_album[0]
 
         # Create Song model and check if already exists
-        s = models.Song(title=tag.title, album=album, genre=tag.genre.name, file=filepath)
-        dup_song = models.Song.objects.filter(file=filepath)
+        dup_song = models.Song.objects.filter(title=tag.title, album=album)
         if not dup_song:
-            dup_song_2 = models.Song.objects.filter(title=tag.title, album=album, genre=tag.genre.name)
-            if not dup_song_2:
-                print('Song added:', file.name)
-                s.save()
-            else:
-                print("Updated filepath!")
-                song = dup_song_2[0]
-                song.file = filepath
-                song.save()
-        # print("="*10)
+            s = models.Song(title=tag.title, album=album, genre=tag.genre.name, file=filepath)
+            print('Song added:', file.name)
+            s.save()
+        # else:
+        #     present_song = dup_song[0]
+        #     if str(present_song.file) != filepath:
+        #         # print('Updated filepath!')
+        #         present_song.file.path = filepath
+        #         present_song.save()
+        #         print("Updated filepath: ", present_song.file)
+
     print()
     print("-="*10 + " LOAD COMPLETE " + '=-'*10)
     print()
