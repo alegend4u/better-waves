@@ -6,6 +6,9 @@ from eyed3 import id3
 from BetterWaves import settings
 from music import models
 
+from music.logger_labeler import logger
+print = logger(__name__.split('.')[-1])
+
 
 def load_library():
     files = []
@@ -23,6 +26,7 @@ def load_library():
 
         # Delete if any of tags is None
         if not (tag.title and tag.artist and tag.album and tag.genre):
+
             os.remove(filepath)
             continue
 
@@ -52,13 +56,6 @@ def load_library():
             s = models.Song(title=tag.title, album=album, genre=tag.genre.name, file=filepath)
             print('Song added:', file.name)
             s.save()
-        # else:
-        #     present_song = dup_song[0]
-        #     if str(present_song.file) != filepath:
-        #         # print('Updated filepath!')
-        #         present_song.file.path = filepath
-        #         present_song.save()
-        #         print("Updated filepath: ", present_song.file)
 
     print()
     print("-="*10 + " LOAD COMPLETE " + '=-'*10)

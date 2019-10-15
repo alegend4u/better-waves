@@ -161,7 +161,6 @@ class Stream(APIView, TokenMixin):
 
     def get(self, request, pk, format=None):
         song = Song.objects.get(pk=pk)
-        print("Reading path:", song.file)
         data = song.file.open('rb')
         response = HttpResponse(data, content_type='audio/mp3')
         response['Content-Disposition'] = 'inline; filename="stream.mp3"'
