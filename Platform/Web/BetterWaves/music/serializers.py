@@ -21,6 +21,10 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
 
 class AlbumSerializer(serializers.HyperlinkedModelSerializer):
     artist = serializers.HyperlinkedRelatedField(view_name='artist-detail', read_only=True)
+    artist_title = serializers.SerializerMethodField('get_artist_title')
+
+    def get_artist_title(self, album):
+        return album.artist.title
 
     class Meta:
         model = Album
@@ -39,17 +43,3 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = ['username']
-
-
-class RecommendationSerializer(serializers.Serializer):
-    song_id = serializers.IntegerField()
-    rank = serializers.IntegerField()
-
-    # def create(self, validated_data):
-    #     return RecommendationSerializer(**validated_data)
-    #
-    # def update(self, instance, validated_data):
-    #     instance.song = validated_data.get('song', instance.song)
-    #     instance.rank = validated_data.get('rank', instance.rank)
-    #
-    #     return instance

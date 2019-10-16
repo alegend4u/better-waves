@@ -78,7 +78,7 @@ public class Fragment_Albums extends Fragment {
                             for (JsonElement je : ja) {
                                 JsonObject jo = je.getAsJsonObject();
                                 final String title = jo.get("title").getAsString();
-                                final String artist = jo.get("artist").getAsString();
+                                final String artist = jo.get("artist_title").getAsString();
 
                                 final Album a = new Album(title, artist);
                                 albums.add(a);

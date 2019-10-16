@@ -47,5 +47,4 @@ for index,row in songs[:10000].iterrows(): # Limit this value around 10000
             user_song.save()
     except:
         print('Excepted')
-        pass
 print("Users' songs ready!")
