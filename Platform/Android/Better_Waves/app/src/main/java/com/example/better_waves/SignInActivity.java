@@ -1,38 +1,38 @@
 package com.example.better_waves;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.better_waves.ui.main.UserToken;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
-public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
-    Boolean loginMode = true;
-    TextView signUp;
+public class SignInActivity extends AppCompatActivity {
+
+    boolean loginMode = true;
+    private View loginView;
+    private View signUpView;
+    private int shortAnimationDuration;
 
     public SignInActivity() {
     }
@@ -42,32 +42,15 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         startActivity(intent);
     }
 
-    public void onClick(View view) {
-        if (view.getId() == R.id.signUp) {
-            Button login = (Button) findViewById(R.id.login);
-            if (loginMode) {
-                loginMode = false;
-                login.setText("Sign Up");
-                signUp.setText("Log In");
-            } else {
-                loginMode = true;
-                login.setText("Log In");
-                signUp.setText("Sign Up");
-            }
-        }
-    }
-
     public void login(View view) {
+        if (loginMode) {
+            final EditText username = (EditText) findViewById(R.id.userName);
+            final EditText password = (EditText) findViewById(R.id.password);
 
-        final EditText username = (EditText) findViewById(R.id.userName);
-        final EditText password = (EditText) findViewById(R.id.password);
-
-        if (username.getText().toString().matches("") || password.getText().toString().matches("")) {
-            Toast.makeText(this, "Credentials required", Toast.LENGTH_SHORT).show();
-        } else {
-            if (loginMode) {
-
-//                Authenticate the user
+            if (username.getText().toString().matches("") || password.getText().toString().matches("")) {
+                Toast.makeText(this, "Credentials required", Toast.LENGTH_SHORT).show();
+            } else {
+//            Authenticate the user
                 String base_url = getApplicationContext().getResources().getString(R.string.base_url);
                 String token_url = base_url + "api-token-auth/";
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
@@ -90,7 +73,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                             System.err.println("Invalid Credentials.");
                         }
                     }
-
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -106,20 +88,141 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                     }
                 };
                 queue.add(stringRequest);
-            } else {
-                String greeting = "Welcome " + username.getText().toString();
-                Toast.makeText(this, greeting, Toast.LENGTH_SHORT).show();
             }
+        } else {
+//            Switch to login mode
+            switchMode();
         }
     }
 
+    public void signup(View view) {
+        if (!loginMode){
+            final String first_name = ((EditText) findViewById(R.id.fname)).getText().toString();
+            final String last_name = ((EditText) findViewById(R.id.lname)).getText().toString();
+            final String username = ((EditText) findViewById(R.id.new_userName)).getText().toString();
+            final String email = ((EditText) findViewById(R.id.email)).getText().toString();
+            final String password = ((EditText) findViewById(R.id.new_password)).getText().toString();
+
+            if (first_name.isEmpty()
+                || last_name.isEmpty()
+                || username.isEmpty()
+                || email.isEmpty()
+                || password.isEmpty()
+            ){
+                Toast.makeText(getApplicationContext(), "Kindly fill the form properly",
+                        Toast.LENGTH_SHORT);
+            } else {
+                String base_url = getApplicationContext().getResources().getString(R.string.base_url);
+                String signup_url = base_url + "signup";
+
+                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, signup_url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(getApplicationContext(), "User Created! Kindly Login", Toast.LENGTH_SHORT).show();
+                        switchMode();
+                    }
+                }, new Response.ErrorListener() {
+                    String message;
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                            //This indicates that the request has either time out or there is no connection
+                            message = "Connection Error";
+                        } else if (error instanceof ServerError) {
+                            //Indicates that the server responded with a error response
+                            NetworkResponse response = error.networkResponse;
+                            System.out.println("Response Data:" + response.data.toString());
+                            if(response != null && response.data != null){
+                                switch(response.statusCode){
+                                    case 400:
+                                        message = "Username already exists!";
+                                        break;
+                                    case 500:
+                                        message = "Server Error";
+                                        break;
+                                    case 403:
+                                        message = "Authentication Error";
+                                        break;
+                                    default:
+                                        message = "Error";
+                                }
+                            }
+                        } else if (error instanceof NetworkError) {
+                            //Indicates that there was network error while performing the request
+                            message = "Network Error";
+                        }
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                        error.printStackTrace();
+                    }
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() {
+                        Map<String, String> creds = new HashMap<String, String>();
+                        creds.put("first_name", first_name);
+                        creds.put("last_name", last_name);
+                        creds.put("username", username);
+                        creds.put("email", email);
+                        creds.put("password", password);
+                        return creds;
+                    }
+                };
+                queue.add(stringRequest);
+            }
+        } else {
+//            Switch to sign up mode
+            switchMode();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        signUp = (TextView) findViewById(R.id.signUp);
-        signUp.setOnClickListener(this);
+        loginView = findViewById(R.id.loginForm);
+        signUpView = findViewById(R.id.signUpForm);
+
+//        Set login mode by default
+        loginMode = true;
+        signUpView.setVisibility(View.GONE);
+        shortAnimationDuration = getResources().getInteger(
+                android.R.integer.config_shortAnimTime);
+    }
+
+    public void switchMode(){
+        if (loginMode){
+//            Show sign up form
+            loginView.setAlpha(1f);
+            loginView.animate()
+                    .alpha(0f)
+                    .setDuration(shortAnimationDuration)
+                    .setListener(null);
+            loginView.setVisibility(View.INVISIBLE);
+
+            signUpView.setAlpha(0f);
+            signUpView.setVisibility(View.VISIBLE);
+            signUpView.animate()
+                    .alpha(1f)
+                    .setDuration(shortAnimationDuration)
+                    .setListener(null);
+            loginMode = false;
+        } else {
+//            Show login form
+            signUpView.setAlpha(1f);
+            signUpView.animate()
+                    .alpha(0f)
+                    .setDuration(shortAnimationDuration)
+                    .setListener(null);
+            signUpView.setVisibility(View.INVISIBLE);
+
+            loginView.setAlpha(0f);
+            loginView.setVisibility(View.VISIBLE);
+            loginView.animate()
+                    .alpha(1f)
+                    .setDuration(shortAnimationDuration)
+                    .setListener(null);
+            loginMode = true;
+        }
     }
 }

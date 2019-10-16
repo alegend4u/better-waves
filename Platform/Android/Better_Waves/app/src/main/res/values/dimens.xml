@@ -7,4 +7,6 @@
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="list_item_left_padding">16dp</dimen>
     <dimen name="list_item_top_padding">16dp</dimen>
+    <dimen name="small_box_width">150dp</dimen>
+    <dimen name="large_width">300dp</dimen>
 </resources>

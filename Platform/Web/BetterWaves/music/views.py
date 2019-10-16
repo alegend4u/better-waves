@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
-from rest_framework import generics
+from django.http import HttpResponse, Http404, HttpResponseBadRequest
+from django.contrib.auth import get_user_model
+
+from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
+
 from music.serializers import *
 from music.models import *
 from music.recom_engine import RecommendationEngine
@@ -117,9 +120,12 @@ class ArtistAlbums(APIView, TokenMixin):
         return Response(serializer.data)
 
 
-class UserList(generics.ListCreateAPIView, TokenMixin):
+class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+    authentication_classes = []
+    permission_classes = []
 
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView, TokenMixin):
@@ -183,6 +189,36 @@ class Recommend(APIView, TokenMixin):
         serializer = SongSerializer(songs, context={'request': request}, many=True)
 
         return Response(serializer.data)
+
+
+class SignUp(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def post(self, request, format=None):
+        data = request.POST
+        print("Data: ",data)
+        username = data.get('username')
+        password = data.get('password')
+        first = data.get('first_name', '')
+        last = data.get('last_name', '')
+        email = data.get('email', '')
+
+        if not username or not password:
+            print("Incomplete credentials provided!")
+            return HttpResponseBadRequest()
+        else:
+            if get_user_model().objects.filter(username=username).first() is not None:
+                return Response("ALREADY_EXISTS", status.HTTP_400_BAD_REQUEST)
+            user = get_user_model().objects.create_user(
+                username=username,
+                email=email,
+                password=password,
+                first_name=first,
+                last_name=last
+            )
+            print('User Created:', user)
+            return Response(status=status.HTTP_201_CREATED)
 
 
 def player(request):
