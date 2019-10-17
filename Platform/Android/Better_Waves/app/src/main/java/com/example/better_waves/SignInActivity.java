@@ -2,7 +2,6 @@ package com.example.better_waves;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -52,8 +51,8 @@ public class SignInActivity extends AppCompatActivity {
 
     public void login(View view) {
         if (loginMode) {
-            final EditText username = (EditText) findViewById(R.id.userName);
-            final EditText password = (EditText) findViewById(R.id.password);
+            final EditText username = findViewById(R.id.userName);
+            final EditText password = findViewById(R.id.password);
 
             if (username.getText().toString().matches("") || password.getText().toString().matches("")) {
                 Toast.makeText(this, "Credentials required", Toast.LENGTH_SHORT).show();
@@ -65,8 +64,7 @@ public class SignInActivity extends AppCompatActivity {
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, token_url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        String jsonObject = new String(response);
-                        JsonObject jo = new JsonParser().parse(jsonObject).getAsJsonObject();
+                        JsonObject jo = new JsonParser().parse(response).getAsJsonObject();
                         if (jo.has("token")) {
                             String user_token = jo.get("token").getAsString();
                             UserToken.setToken(user_token);
@@ -89,7 +87,7 @@ public class SignInActivity extends AppCompatActivity {
                 }) {
                     @Override
                     protected Map<String, String> getParams() {
-                        Map<String, String> creds = new HashMap<String, String>();
+                        Map<String, String> creds = new HashMap<>();
                         creds.put("username", username.getText().toString());
                         creds.put("password", password.getText().toString());
                         return creds;
@@ -118,7 +116,7 @@ public class SignInActivity extends AppCompatActivity {
                 || password.equals("")
             ){
                 Toast.makeText(getApplicationContext(), "Kindly fill the form properly",
-                        Toast.LENGTH_SHORT);
+                        Toast.LENGTH_SHORT).show();
             } else {
                 String base_url = getApplicationContext().getResources().getString(R.string.base_url);
                 String signup_url = base_url + "signup";
@@ -140,7 +138,6 @@ public class SignInActivity extends AppCompatActivity {
                         } else if (error instanceof ServerError) {
                             //Indicates that the server responded with a error response
                             NetworkResponse response = error.networkResponse;
-                            System.out.println("Response Data:" + response.data.toString());
                             if(response != null && response.data != null){
                                 switch(response.statusCode){
                                     case 400:
@@ -166,7 +163,7 @@ public class SignInActivity extends AppCompatActivity {
                 }) {
                     @Override
                     protected Map<String, String> getParams() {
-                        Map<String, String> creds = new HashMap<String, String>();
+                        Map<String, String> creds = new HashMap<>();
                         creds.put("first_name", first_name);
                         creds.put("last_name", last_name);
                         creds.put("username", username);
@@ -191,8 +188,8 @@ public class SignInActivity extends AppCompatActivity {
         loginView = findViewById(R.id.loginForm);
         signUpView = findViewById(R.id.signUpForm);
 
-        signUpButton = (Button) findViewById(R.id.signup);
-        loginButton = (Button) findViewById(R.id.login);
+        signUpButton = findViewById(R.id.signup);
+        loginButton = findViewById(R.id.login);
 
         defaultButtonBack = signUpButton.getBackgroundTintList();
         defaultButtonColors = signUpButton.getCurrentTextColor();
