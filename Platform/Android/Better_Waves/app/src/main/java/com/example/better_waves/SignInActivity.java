@@ -1,17 +1,18 @@
 package com.example.better_waves;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.NoConnectionError;
-import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -33,6 +34,13 @@ public class SignInActivity extends AppCompatActivity {
     private View loginView;
     private View signUpView;
     private int shortAnimationDuration;
+    private Button loginButton;
+    private Button signUpButton;
+
+    private ColorStateList defaultButtonBack;
+    private int defaultButtonColors;
+    private ColorStateList mainButtonBack;
+    private int mainButtonColors;
 
     public SignInActivity() {
     }
@@ -103,11 +111,11 @@ public class SignInActivity extends AppCompatActivity {
             final String email = ((EditText) findViewById(R.id.email)).getText().toString();
             final String password = ((EditText) findViewById(R.id.new_password)).getText().toString();
 
-            if (first_name.isEmpty()
-                || last_name.isEmpty()
-                || username.isEmpty()
-                || email.isEmpty()
-                || password.isEmpty()
+            if (first_name.equals("")
+                || last_name.equals("")
+                || username.equals("")
+                || email.equals("")
+                || password.equals("")
             ){
                 Toast.makeText(getApplicationContext(), "Kindly fill the form properly",
                         Toast.LENGTH_SHORT);
@@ -183,11 +191,18 @@ public class SignInActivity extends AppCompatActivity {
         loginView = findViewById(R.id.loginForm);
         signUpView = findViewById(R.id.signUpForm);
 
+        signUpButton = (Button) findViewById(R.id.signup);
+        loginButton = (Button) findViewById(R.id.login);
+
+        defaultButtonBack = signUpButton.getBackgroundTintList();
+        defaultButtonColors = signUpButton.getCurrentTextColor();
+        mainButtonBack = loginButton.getBackgroundTintList();
+        mainButtonColors = loginButton.getCurrentTextColor();
 //        Set login mode by default
         loginMode = true;
         signUpView.setVisibility(View.GONE);
         shortAnimationDuration = getResources().getInteger(
-                android.R.integer.config_shortAnimTime);
+                android.R.integer.config_shortAnimTime)*2;
     }
 
     public void switchMode(){
@@ -206,6 +221,12 @@ public class SignInActivity extends AppCompatActivity {
                     .alpha(1f)
                     .setDuration(shortAnimationDuration)
                     .setListener(null);
+
+            signUpButton.setBackgroundTintList(mainButtonBack);
+            signUpButton.setTextColor(mainButtonColors);
+            loginButton.setBackgroundTintList(defaultButtonBack);
+            loginButton.setTextColor(defaultButtonColors);
+
             loginMode = false;
         } else {
 //            Show login form
@@ -222,7 +243,14 @@ public class SignInActivity extends AppCompatActivity {
                     .alpha(1f)
                     .setDuration(shortAnimationDuration)
                     .setListener(null);
+
+            signUpButton.setBackgroundTintList(defaultButtonBack);
+            signUpButton.setTextColor(defaultButtonColors);
+            loginButton.setBackgroundTintList(mainButtonBack);
+            loginButton.setTextColor(mainButtonColors);
+
             loginMode = true;
         }
+
     }
 }

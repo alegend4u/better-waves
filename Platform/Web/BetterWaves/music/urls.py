@@ -34,7 +34,10 @@ urlpatterns = [
     path('stream/<int:pk>', views.Stream.as_view(), name='song-stream'),
 
     # recommend urls
-    path('recommend', views.Recommend.as_view(), name='recommend')
+    path('recommend', views.Recommend.as_view(), name='recommend'),
+
+    #Sign UP Url
+    path('signup', views.SignUp.as_view(), name='sign-up'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
