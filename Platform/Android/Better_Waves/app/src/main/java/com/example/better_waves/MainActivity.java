@@ -145,7 +145,13 @@ public class MainActivity extends AppCompatActivity {
         player.reset();
         seekBar.setProgress(0);
         fab.setImageDrawable(playImage);
-        currentTime.setText(emptyTime);
-        totalTime.setText(emptyTime);
+        currentTime.post(new Runnable() {
+            @Override
+            public void run() {
+                currentTime.setText(emptyTime);
+                totalTime.setText(emptyTime);
+            }
+        });
+//        totalTime.setText(emptyTime);
     }
 }
