@@ -11,7 +11,6 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.widget.Toast;
 
 import com.example.better_waves.MainActivity;
-import com.example.better_waves.MusicPlayer;
 import com.example.better_waves.R;
 
 import java.util.ArrayList;

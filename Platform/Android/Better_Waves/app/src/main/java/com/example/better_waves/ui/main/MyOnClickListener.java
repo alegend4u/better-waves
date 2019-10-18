@@ -1,28 +1,24 @@
 package com.example.better_waves.ui.main;
 
 
+import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.better_waves.MusicPlayer;
+import com.example.better_waves.MainActivity;
 
 public class MyOnClickListener implements View.OnClickListener {
-    int song_id;
-    static MusicPlayer player;
+    private int song_id;
+    private static MediaPlayer player;
 
-    public MyOnClickListener(int song_id) {
+    MyOnClickListener(int song_id) {
         this.song_id = song_id;
-    }
-
-    public static MusicPlayer getPlayer() {
-        return player;
+        player = MainActivity.player;
     }
 
     @Override
     public void onClick(View v) {
-
-        Toast.makeText(v.getContext(), "Play Song " + String.valueOf(song_id), Toast.LENGTH_SHORT).show();
-        player = new MusicPlayer(v.getContext());
-        player.playSong(v, song_id);
+        Toast.makeText(v.getContext(), "Play Song " + song_id, Toast.LENGTH_SHORT).show();
+        MainActivity.playSong(v, song_id);
     }
 }

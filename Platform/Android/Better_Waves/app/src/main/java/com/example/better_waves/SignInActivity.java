@@ -80,8 +80,35 @@ public class SignInActivity extends AppCompatActivity {
                         }
                     }
                 }, new Response.ErrorListener() {
+                    String message;
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                            //This indicates that the request has either time out or there is no connection
+                            message = "Connection Error";
+                        } else if (error instanceof ServerError) {
+                            //Indicates that the server responded with a error response
+                            NetworkResponse response = error.networkResponse;
+                            if(response != null && response.data != null){
+                                switch(response.statusCode){
+                                    case 400:
+                                        message = "Invalid Credentials";
+                                        break;
+                                    case 500:
+                                        message = "Server Error";
+                                        break;
+                                    case 403:
+                                        message = "Authentication Error";
+                                        break;
+                                    default:
+                                        message = "Error";
+                                }
+                            }
+                        } else if (error instanceof NetworkError) {
+                            //Indicates that there was network error while performing the request
+                            message = "Network Error";
+                        }
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                         error.printStackTrace();
                     }
                 }) {
