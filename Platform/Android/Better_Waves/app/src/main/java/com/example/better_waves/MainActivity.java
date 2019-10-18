@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.better_waves.ui.main.MyOnClickListener;
 import com.example.better_waves.ui.main.RecyclerAdapter_AllSongs;
 import com.example.better_waves.ui.main.SectionsPagerAdapter;
+import com.example.better_waves.ui.main.SeekBarUpdater;
 import com.example.better_waves.ui.main.UserToken;
 
 import java.io.IOException;
@@ -102,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
         seekBarUpdater.start();
     }
 
-
     public static void playSong(View view, int song_id) {
         if (player == null) {
             player = new MediaPlayer();
@@ -132,37 +132,6 @@ public class MainActivity extends AppCompatActivity {
         player.stop();
         player.reset();
         seekBar.setProgress(0);
-    }
-}
-
-class SeekBarUpdater extends Thread {
-    MediaPlayer player;
-    SeekBar seekBar;
-
-    public SeekBarUpdater() {
-        this.player = MainActivity.player;
-        this.seekBar = MainActivity.seekBar;
-    }
-
-    @Override
-    public void run() {
-        this.player = MainActivity.player;
-        this.seekBar = MainActivity.seekBar;
-        int currentPosition = player.getCurrentPosition();
-        int total = player.getDuration();
-        seekBar.setMax(total);
-
-        while (player != null && player.isPlaying() && currentPosition < total) {
-            try {
-                Thread.sleep(1000);
-                currentPosition = player.getCurrentPosition();
-            } catch (InterruptedException e) {
-                return;
-            }
-            System.out.println("Seekbar: " + seekBar.getProgress() + " SeekMax: " + seekBar.getMax() + " Current Position:" + currentPosition + ", Total:" + total);
-            seekBar.setProgress(currentPosition);
-        }
-
-        MainActivity.resetPlayer();
+        fab.setImageDrawable(playImage);
     }
 }
