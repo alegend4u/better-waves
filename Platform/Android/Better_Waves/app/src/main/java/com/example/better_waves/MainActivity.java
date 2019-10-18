@@ -13,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.better_waves.ui.main.MyOnClickListener;
@@ -29,7 +30,13 @@ public class MainActivity extends AppCompatActivity {
     public static MediaPlayer player;
     private static FloatingActionButton fab;
     public static SeekBar seekBar;
+
+    public static TextView currentTime;
+    public static TextView totalTime;
+    static String emptyTime;
+
     private static String stream_base_url;
+
 
     private static Drawable playImage;
     private static Drawable pauseImage;
@@ -89,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
         playImage = ContextCompat.getDrawable(MainActivity.this, android.R.drawable.ic_media_play);
         pauseImage = ContextCompat.getDrawable(MainActivity.this, android.R.drawable.ic_media_pause);
 
+        currentTime = findViewById(R.id.currentDuration);
+        totalTime = findViewById(R.id.totalDuration);
+        emptyTime = currentTime.getText().toString();
     }
 
     public static void pause(View v) {
@@ -124,6 +134,8 @@ public class MainActivity extends AppCompatActivity {
             player.prepareAsync();
             play(view);
         } catch (IllegalArgumentException | SecurityException | IOException e) {
+            Toast.makeText(MainActivity.context, "Error occurred playing song",
+                    Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
@@ -133,5 +145,7 @@ public class MainActivity extends AppCompatActivity {
         player.reset();
         seekBar.setProgress(0);
         fab.setImageDrawable(playImage);
+        currentTime.setText(emptyTime);
+        totalTime.setText(emptyTime);
     }
 }

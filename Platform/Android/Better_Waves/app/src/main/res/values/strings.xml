@@ -23,4 +23,6 @@
     <string name="email">Email</string>
     <string name="fname">First Name</string>
     <string name="lname">Last Name</string>
+    <string name="no_time">--:--</string>
+    <string name="no_song_loaded">Select a track to play</string>
 </resources>
