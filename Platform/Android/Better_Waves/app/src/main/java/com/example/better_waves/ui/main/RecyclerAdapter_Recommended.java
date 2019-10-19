@@ -44,7 +44,7 @@ public class RecyclerAdapter_Recommended extends RecyclerView.Adapter<RecyclerAd
         myViewHolder.album_name.setText(song.getAlbum());
         myViewHolder.artist_name.setText(song.getArtist());
 
-        MyOnClickListener listener = new MyOnClickListener(song.getId());
+        MyOnClickListener listener = new MyOnClickListener(song);
         myViewHolder.itemView.setOnClickListener(listener);
     }
 

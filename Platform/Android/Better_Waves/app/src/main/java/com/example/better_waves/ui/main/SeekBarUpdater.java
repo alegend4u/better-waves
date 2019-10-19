@@ -55,6 +55,12 @@ public class SeekBarUpdater extends Thread {
         if (!(currentPosition < total)) {
             System.out.println("Reseting player.");
             MainActivity.resetPlayer();
+            MainActivity.currentSongTitle.post(new Runnable() {
+                @Override
+                public void run() {
+                    MainActivity.currentSongTitle.setText(MainActivity.defaultSongTitle);
+                }
+            });
         }
     }
 

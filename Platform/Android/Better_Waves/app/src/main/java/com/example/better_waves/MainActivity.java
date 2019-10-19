@@ -20,6 +20,7 @@ import com.example.better_waves.ui.main.MyOnClickListener;
 import com.example.better_waves.ui.main.RecyclerAdapter_AllSongs;
 import com.example.better_waves.ui.main.SectionsPagerAdapter;
 import com.example.better_waves.ui.main.SeekBarUpdater;
+import com.example.better_waves.ui.main.Song;
 import com.example.better_waves.ui.main.UserToken;
 
 import java.io.IOException;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     public static MediaPlayer player;
     private static FloatingActionButton fab;
     public static SeekBar seekBar;
+    public static TextView currentSongTitle;
+    public static String defaultSongTitle;
 
     public static TextView currentTime;
     public static TextView totalTime;
@@ -61,11 +64,11 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (player.isPlaying()) {
-                    pause(view);
-                } else {
-                    play(view);
-                }
+            if (player.isPlaying()) {
+                pause(view);
+            } else {
+                play(view);
+            }
             }
         });
 
@@ -99,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
         currentTime = findViewById(R.id.currentDuration);
         totalTime = findViewById(R.id.totalDuration);
         emptyTime = currentTime.getText().toString();
+        currentSongTitle = findViewById(R.id.currentSong);
+        defaultSongTitle = currentSongTitle.getText().toString();
     }
 
     public static void pause(View v) {
@@ -152,6 +157,9 @@ public class MainActivity extends AppCompatActivity {
                 totalTime.setText(emptyTime);
             }
         });
-//        totalTime.setText(emptyTime);
+    }
+
+    public static void setCurrentSong(Song song){
+        currentSongTitle.setText(song.getTitle());
     }
 }
