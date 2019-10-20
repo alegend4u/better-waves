@@ -31,7 +31,7 @@ for user_id in user_list:
 print("Users ready!")
 # ============== Create random users' songs ==============
 RATING = [-1, 1, 2, 3, 4, 5]
-for index,row in songs[:10000].iterrows(): # Limit this value around 10000
+for index,row in songs[:8000].iterrows(): # Limit this value as per your choice
     try:
         # print(row['user_id'], row['song_id'], row['listen_count'])
         user_id = row['user_id']
