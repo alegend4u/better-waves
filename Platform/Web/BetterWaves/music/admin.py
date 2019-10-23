@@ -22,5 +22,4 @@ class UserSongAdmin(ModelAdmin):
         return user_song.song.title
 
 
-
 admin.site.register(UserSong, UserSongAdmin)

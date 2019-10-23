@@ -10,7 +10,7 @@ class RecommendationEngine:
         self.ITEM_SIMILARITY = 'Item_Similarity'
 
         self.recommend_mode = self.POPULARITY
-        self.pm = None
+        self.pm = self.POPULARITY
 
     def retrain(self):
         print("=====Training=====")
@@ -43,12 +43,14 @@ class RecommendationEngine:
         # Decide the recommender and train the model
         user = models.User.objects.get(id=user_id)
         rated_songs = user.rated_songs.get_queryset()
+        print("User's rated songs count: ", len(rated_songs))
         if len(rated_songs) > 0:
             self.recommend_mode = self.ITEM_SIMILARITY
         self.pm = self.select_recommender()
         self.retrain()
 
         # Get the recommendations
+        print("Recommendation Mode:", self.recommend_mode)
         result = dict(self.pm.recommend(user_id))
         if self.recommend_mode == self.POPULARITY:
             song_ids = list(result['song_id'])
