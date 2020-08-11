@@ -1,11 +1,13 @@
 package com.example.better_waves.ui.main;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.better_waves.Fragment_Albums;
 import com.example.better_waves.Fragment_AllSongs;
@@ -35,23 +37,19 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         mContext = context;
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0:
-                Fragment_AllSongs songs = new Fragment_AllSongs();
-                return songs;
             case 1:
-                Fragment_Albums albums = new Fragment_Albums();
-                return albums;
+                return new Fragment_Albums();
             case 2:
-                Fragment_Artists artists = new Fragment_Artists();
-                return artists;
+                return new Fragment_Artists();
             case 3:
-                Fragment_Recommendations recommends = new Fragment_Recommendations();
-                return recommends;
+                return new Fragment_Recommendations();
+            default:
+                return new Fragment_AllSongs();
         }
-        return null;
     }
 
     @Nullable

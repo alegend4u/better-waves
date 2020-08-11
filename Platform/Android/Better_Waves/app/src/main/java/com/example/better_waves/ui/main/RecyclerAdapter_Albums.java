@@ -1,9 +1,9 @@
 package com.example.better_waves.ui.main;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +28,7 @@ public class RecyclerAdapter_Albums extends RecyclerView.Adapter<RecyclerAdapter
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v;
         v = LayoutInflater.from(mContext).inflate(R.layout.item_album, viewGroup, false);
-        MyViewHolder viewHolder = new MyViewHolder(v);
-        return viewHolder;
+        return new MyViewHolder(v);
     }
 
     @Override

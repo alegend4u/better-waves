@@ -1,19 +1,16 @@
 package com.example.better_waves.ui.main;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
-import android.widget.Toast;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
-import com.example.better_waves.MainActivity;
 import com.example.better_waves.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerAdapter_Recommended extends RecyclerView.Adapter<RecyclerAdapter_Recommended.MyViewHolder> {
@@ -31,9 +28,8 @@ public class RecyclerAdapter_Recommended extends RecyclerView.Adapter<RecyclerAd
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v;
         v = LayoutInflater.from(mContext).inflate(R.layout.item_recomended, viewGroup, false);
-        final MyViewHolder viewHolder = new MyViewHolder(v);
 
-        return viewHolder;
+        return new MyViewHolder(v);
     }
 
     @Override
