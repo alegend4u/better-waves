@@ -1,5 +1,5 @@
 cycler==0.10.0
-Django==2.2.4
+Django==2.2.21
 django-filter==2.2.0
 djangorestframework==3.10.2
 eyeD3==0.8.10
